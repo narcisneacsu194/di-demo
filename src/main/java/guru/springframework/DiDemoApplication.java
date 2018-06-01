@@ -4,6 +4,7 @@ import guru.springframework.controllers.ConstructorInjectedController;
 import guru.springframework.controllers.MyController;
 import guru.springframework.controllers.PropertyInjectedController;
 import guru.springframework.controllers.SetterInjectedController;
+import guru.springframework.examplebeans.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -18,32 +19,8 @@ public class DiDemoApplication {
 
 		MyController controller = (MyController)ctx.getBean("myController");
 
-//		controller.hello();
-//
-//		System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
-//		System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
-//		System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
+		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
 
-//		ConstructorGreetingService constructorGreetingService =
-//				ctx.getBean(ConstructorGreetingService.class);
-//		System.out.println(constructorGreetingService.sayGreeting());
-//
-//		GreetingServiceImpl greetingServiceImpl =
-//				ctx.getBean(GreetingServiceImpl.class);
-//		System.out.println(greetingServiceImpl.sayGreeting());
-//
-//		PrimaryGreetingService primaryGreetingService =
-//				ctx.getBean(PrimaryGreetingService.class);
-//		System.out.println(primaryGreetingService.sayGreeting());
-//
-//		SetterGreetingService setterGreetingService =
-//				ctx.getBean(SetterGreetingService.class);
-//		System.out.println(setterGreetingService.sayGreeting());
-
-		System.out.println(controller.hello());
-		System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
-		System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
-		System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
-
+		System.out.println(fakeDataSource.getUser());
 	}
 }
